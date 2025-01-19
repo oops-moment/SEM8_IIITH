@@ -21,14 +21,16 @@ int main(int argc, char* argv[])
         case SENDER:
         {
             int buffer_sent = 12345;
+            int buffer_sent2 = 54321;
             printf("MPI process %d sends value %d.\n", my_rank, buffer_sent);
             MPI_Send(&buffer_sent, 1, MPI_INT, RECEIVER, 0, MPI_COMM_WORLD);
+            MPI_Send(&buffer_sent2, 1, MPI_INT, RECEIVER, 2, MPI_COMM_WORLD);
             break;
         }
         case RECEIVER:
         {
             int received;
-            MPI_Recv(&received, 1, MPI_INT, SENDER, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            MPI_Recv(&received, 1, MPI_INT, SENDER, 2, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             printf("MPI process %d received value: %d.\n", my_rank, received);
             break;
         }
