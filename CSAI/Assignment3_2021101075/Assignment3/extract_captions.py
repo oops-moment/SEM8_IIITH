@@ -11,7 +11,7 @@ print("cocoId: ")
 ####
 # E.g., I want to see the captions of training split image "train-0001_nsd-00007"
 # train-0001 indicates whether this image belong to the training set or validation set
-# nsd-00007 indicates nsdId
+# nsd-00007 indicates nsdId    
 
 ###
 # Grab COCO subject id info that belong to nsdId 7
